@@ -8,7 +8,6 @@
   }
 
   function processData(rawData) {
-    console.log(rawData);
     let description = rawData.weather[0].description;
     description = description.split(" ").map((word) => {
       return word[0].toUpperCase() + word.substring(1);
