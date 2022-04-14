@@ -9,9 +9,13 @@
 
   function processData(rawData) {
     // console.log(rawData);
+    let description = rawData.weather[0].description;
+    description = description.split(" ").map((word) => {
+      return word[0].toUpperCase() + word.substring(1);
+    }).join(" ");
     const weatherData = {
       ...rawData.main,
-      description: rawData.weather[0].description,
+      description: description,
       name: rawData.name,
       wind: rawData.wind,
       sunrise: rawData.sys.sunrise,
@@ -21,13 +25,14 @@
     return weatherData;
   }
 
-  const displayController = (() => {
+  const displayController = ((doc) => {
     let cityName = "London";
 
     async function buildPage() {
       const raw = await getRawData(cityName);
       const data = processData(raw);
       console.log(data);
+      doc.querySelector("#weather-description").textContent = data.description;
     }
 
     const form = document.querySelector("form");
@@ -38,5 +43,5 @@
       buildPage();
     });
     buildPage();
-  })();
+  })(document);
 })();
