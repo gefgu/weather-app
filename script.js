@@ -35,7 +35,7 @@
       doc.querySelector("#weather-description").textContent = data.description;
       doc.querySelector("#location-name").textContent = data.name;
 
-      doc.querySelector(".temperature").textContent = `${data.temp} °C`;
+      doc.querySelector(".temperature").textContent = `${data.temp}°C`;
       doc.querySelector(".feels > div").textContent = `${data.feels_like} °C`;
       doc.querySelector(".humidity > div").textContent = `${data.humidity}%`;
       doc.querySelector(".pressure > div").textContent = `${data.pressure} hPa`;

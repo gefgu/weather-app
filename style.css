@@ -16,4 +16,20 @@ body {
 
   font-family: sans-serif;
   color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-end;
 }
