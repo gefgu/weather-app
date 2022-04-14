@@ -36,12 +36,12 @@
       doc.querySelector("#location-name").textContent = data.name;
 
       doc.querySelector(".temperature").textContent = `${data.temp} °C`;
-      doc.querySelector(".feels").textContent = `${data.feels_like} °C`;
-      doc.querySelector(".humidity").textContent = `${data.humidity}%`;
-      doc.querySelector(".pressure").textContent = `${data.pressure} hPa`;
-      doc.querySelector(".temp-max").textContent = `${data.temp_max} °C`;
-      doc.querySelector(".temp-min").textContent = `${data.temp_min} °C`;
-      doc.querySelector(".wind").textContent = `${data.wind.speed} m/s`;
+      doc.querySelector(".feels > div").textContent = `${data.feels_like} °C`;
+      doc.querySelector(".humidity > div").textContent = `${data.humidity}%`;
+      doc.querySelector(".pressure > div").textContent = `${data.pressure} hPa`;
+      doc.querySelector(".temp-max > div").textContent = `${data.temp_max} °C`;
+      doc.querySelector(".temp-min > div").textContent = `${data.temp_min} °C`;
+      doc.querySelector(".wind > div").textContent = `${data.wind.speed} m/s`;
     }
 
     const form = document.querySelector("form");
