@@ -16,7 +16,7 @@ body {
 
   font-family: sans-serif;
   color: white;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 2fr;
@@ -29,7 +29,13 @@ body {
 
 .main {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   justify-content: center;
   align-items: flex-end;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.main div{
+  font-size: 1.5rem;
 }
