@@ -22,6 +22,11 @@ body {
   grid-template-rows: 1fr 2fr;
 }
 
+#location-name {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
 .temperature {
   font-size: 3rem;
   font-weight: bold;
