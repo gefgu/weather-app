@@ -15,4 +15,13 @@
   getRawData("London").then((response) => {
     console.log(processData(response));
   });
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const locationInput = form.querySelector("#location-search");
+    getRawData(locationInput.value).then((response) => {
+      console.log(processData(response));
+    });
+  });
 })();
