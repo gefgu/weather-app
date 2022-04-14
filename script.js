@@ -21,30 +21,22 @@
     return weatherData;
   }
 
-  getRawData("London").then((response) => {
-    console.log(processData(response));
-  });
-
-  const form = document.querySelector("form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const locationInput = form.querySelector("#location-search");
-    getRawData(locationInput.value).then((response) => {
-      console.log(processData(response));
-    });
-  });
-
   const displayController = (() => {
-    let data = null;
-    getRawData("London").then((response) => {
-      data = processData(response);
-    })
+    let cityName = "London";
 
-    const buildPage = () => {
-      
+    async function buildPage() {
+      const raw = await getRawData(cityName);
+      const data = processData(raw);
+      console.log(data);
     }
 
-
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const locationInput = form.querySelector("#location-search");
+      cityName = locationInput.value;
+      buildPage();
+    });
     buildPage();
   })();
 })();
