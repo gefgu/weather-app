@@ -8,7 +8,7 @@
   }
 
   function processData(rawData) {
-    console.log(rawData);
+    // console.log(rawData);
     const weatherData = {
       ...rawData.main,
       description: rawData.weather[0].description,
@@ -33,4 +33,18 @@
       console.log(processData(response));
     });
   });
+
+  const displayController = (() => {
+    let data = null;
+    getRawData("London").then((response) => {
+      data = processData(response);
+    })
+
+    const buildPage = () => {
+      
+    }
+
+
+    buildPage();
+  })();
 })();
