@@ -31,8 +31,6 @@
       console.log(data);
       doc.querySelector("#weather-description").textContent = data.description;
       doc.querySelector("#location-name").textContent = data.name;
-      doc.querySelector("#date").textContent = data.description;
-      doc.querySelector("#weather-description").textContent = data.description;
     }
 
     const form = document.querySelector("form");
