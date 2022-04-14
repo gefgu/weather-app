@@ -18,6 +18,10 @@
       name: rawData.name,
       wind: rawData.wind,
     };
+    weatherData.temp = Math.floor(weatherData.temp - 273.15);
+    weatherData.feels_like = Math.floor(weatherData.feels_like - 273.15);
+    weatherData.temp_min = Math.floor(weatherData.temp_min - 273.15);
+    weatherData.temp_max = Math.floor(weatherData.temp_max - 273.15);
     return weatherData;
   }
 
