@@ -1,0 +1,6 @@
+body {
+  margin: 0;
+  background: url("bg.jpg") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+}
