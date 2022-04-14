@@ -8,7 +8,7 @@
   }
 
   function processData(rawData) {
-    // console.log(rawData);
+    console.log(rawData);
     let description = rawData.weather[0].description;
     description = description.split(" ").map((word) => {
       return word[0].toUpperCase() + word.substring(1);
@@ -18,9 +18,6 @@
       description: description,
       name: rawData.name,
       wind: rawData.wind,
-      sunrise: rawData.sys.sunrise,
-      sunset: rawData.sys.sunset,
-      timezone: rawData.timezone,
     };
     return weatherData;
   }
@@ -32,6 +29,9 @@
       const raw = await getRawData(cityName);
       const data = processData(raw);
       console.log(data);
+      doc.querySelector("#weather-description").textContent = data.description;
+      doc.querySelector("#location-name").textContent = data.name;
+      doc.querySelector("#date").textContent = data.description;
       doc.querySelector("#weather-description").textContent = data.description;
     }
 
