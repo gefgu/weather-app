@@ -8,7 +8,16 @@
   }
 
   function processData(rawData) {
-    const weatherData = rawData.main;
+    console.log(rawData);
+    const weatherData = {
+      ...rawData.main,
+      description: rawData.weather[0].description,
+      name: rawData.name,
+      wind: rawData.wind,
+      sunrise: rawData.sys.sunrise,
+      sunset: rawData.sys.sunset,
+      timezone: rawData.timezone,
+    };
     return weatherData;
   }
 
