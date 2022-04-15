@@ -2,16 +2,23 @@
   async function getRawData(location) {
     const apiID = "9426f14f9c66ae5af9513a6760935f0f";
     const requestLink = `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${apiID}`;
-    const response = await fetch(requestLink, {mode: "cors"});
-    const data = await response.json();
-    return data;
+    const response = await fetch(requestLink, { mode: "cors" });
+    if (response.status === 200) {
+      const data = await response.json();
+      return data;
+    }
+
+    throw Error(response.statusText);
   }
 
   function processData(rawData) {
     let description = rawData.weather[0].description;
-    description = description.split(" ").map((word) => {
-      return word[0].toUpperCase() + word.substring(1);
-    }).join(" ");
+    description = description
+      .split(" ")
+      .map((word) => {
+        return word[0].toUpperCase() + word.substring(1);
+      })
+      .join(" ");
     const weatherData = {
       ...rawData.main,
       description: description,
@@ -29,7 +36,17 @@
     let cityName = "London";
 
     async function buildPage() {
-      const raw = await getRawData(cityName);
+      const errorMessage = doc.querySelector(".error-message");
+      let raw = null;
+      try {
+        const raw = await getRawData(cityName);
+      } catch (e) {
+        console.log(e);
+        errorMessage.textContent =
+          "Something went wrong! Try another location...";
+        return;
+      }
+      errorMessage.textContent = "";
       const data = processData(raw);
       // console.log(data);
       doc.querySelector("#weather-description").textContent = data.description;
