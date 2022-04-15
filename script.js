@@ -31,7 +31,7 @@
     async function buildPage() {
       const raw = await getRawData(cityName);
       const data = processData(raw);
-      console.log(data);
+      // console.log(data);
       doc.querySelector("#weather-description").textContent = data.description;
       doc.querySelector("#location-name").textContent = data.name;
 
