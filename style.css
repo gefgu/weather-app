@@ -44,3 +44,8 @@ body {
 .main div{
   font-size: 1.5rem;
 }
+
+.error-message {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}

@@ -39,7 +39,7 @@
       const errorMessage = doc.querySelector(".error-message");
       let raw = null;
       try {
-        const raw = await getRawData(cityName);
+        raw = await getRawData(cityName);
       } catch (e) {
         console.log(e);
         errorMessage.textContent =
